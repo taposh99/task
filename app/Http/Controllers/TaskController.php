@@ -53,7 +53,7 @@ class TaskController extends Controller
 
         ]);
 
-        return redirect('dashboard')->with('success', 'Update successfully');
+        return redirect('dashboard')->with('success', 'successfully update');
     }
 
     // delete data

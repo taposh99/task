@@ -26,9 +26,11 @@ Route::middleware([
    
 
     Route::get('/dashboard', [TaskController::class, 'index'])->name('dashboard');
-    Route::post('store', [TaskController::class, 'store'])->name('store');
-    Route::get('edit/{id}', [TaskController::class, 'edit'])->name('edit');
-    Route::post('update', [TaskController::class, 'update'])->name('update');
+    Route::post('/store', [TaskController::class, 'store'])->name('store');
+    
+    Route::get('/edit/{id}', [TaskController::class, 'edit'])->name('edit');
+
+    Route::post('/update/{id}', [TaskController::class, 'update'])->name('update');
     Route::delete('delete', [TaskController::class, 'destroy'])->name('delete');
     
 });

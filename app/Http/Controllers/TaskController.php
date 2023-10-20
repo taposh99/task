@@ -31,29 +31,30 @@ class TaskController extends Controller
 
         ]);
 
-        return back()->with('success', 'Data created successfully');
+        return response()->json(['message' => 'Product saved successfully']);
     }
 
     // edit data
 
     public function edit($id)
     {
-        $home = Task::find($id);
-        return view('edit', compact('home'));
+        $data = Task::findOrFail($id);
+        return response()->json($data);
     }
 
     // update data
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $home = Task::find($request->data_id);
+       
 
-        $home->update([
+
+        $home = Task::findOrFail($id)->update([
             'task_name' => $request->task_name,
-
+           
         ]);
 
-        return redirect('dashboard')->with('success', 'Update successfully');
+        return response()->json($home);
     }
 
     // delete data
